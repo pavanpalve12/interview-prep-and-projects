@@ -1,0 +1,7 @@
+# destination and metadata (single key=value style)
+destination_path = /Users/pavan/Workspace/00-Tech-Workspace/github/interview-prep-and-projects/practice/sql/datalemur/easy-problems
+platform = datalemur
+difficulty = easy
+
+# folders as a comma-separated list (order preserved)
+folders = twitter-histogram-of-tweets, linkedin-data-science-skills, facebook-page-with-no-likes, tesla-unfinished-parts, ny-times-laptop-vs-mobile-viewership, facebook-average-post-hiatus-part-1, microsoft-teams-power-users, linkedin-duplicate-job-listings, robinhood-cities-with-completed-trades, amazon-average-review-ratings, faang-well-paid-employees, paypal-final-account-balance, facebook-app-click-through-rate-ctr, tiktok-second-day-confirmation, ibm-ibm-db2-product-analytics, jpmorgan-cards-issued-difference, alibaba-compressed-mean, cvs-health-pharmacy-analytics-part-1, cvs-health-pharmacy-analytics-part-2, cvs-health-pharmacy-analytics-part-3, unitedhealth-patient-support-analysis-part-1
