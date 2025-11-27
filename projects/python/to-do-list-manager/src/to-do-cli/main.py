@@ -17,8 +17,6 @@ def main():
     
     if user_input_dict["action"] == "add":
         t1.initialize(user_input_dict["description"], fetch_task_id(tasks_list))
-        t1.createdAt = datetime.now().isoformat()
-        t1.updatedAt = datetime.now().isoformat()
 
         curr_task = t1.task_to_dict()
         display_task(curr_task)
