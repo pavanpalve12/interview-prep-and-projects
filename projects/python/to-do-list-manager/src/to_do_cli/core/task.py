@@ -24,7 +24,7 @@ class task:
     
     # Method: Initialize class task
     def initialize(self, description, task_id):
-        now = datetime.now().isoformat()
+        now = datetime.now().strftime("%Y-%m-%d %I:%M:%S %p")
         self.id = task_id
         self.description = description
         self.createdAt = now
