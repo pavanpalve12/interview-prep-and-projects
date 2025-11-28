@@ -1,4 +1,5 @@
-from to_do_cli.core import utility_functions as uf
+from to_do_cli.core import task_utils as tu
+from to_do_cli.core import tabulate_data as td
 from to_do_cli.storage import read_tasks_from_json as rjfile
 from to_do_cli.storage import write_tasks_to_json as wjfile
 
@@ -7,7 +8,7 @@ def add_task(task_data_file_path, task_obj, description):
     task_data = rjfile.read_tasks(task_data_file_path)
 
     # Initialize variables of class task (properties of task)
-    task_obj.initialize(description, uf.get_latest_task_id(task_data))
+    task_obj.initialize(description, tu.get_latest_task_id(task_data))
 
     # Creating a dictionary of task properties for writing to json 
     curr_task = task_obj.task_to_dict()

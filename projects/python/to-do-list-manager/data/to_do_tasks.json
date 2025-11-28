@@ -23,14 +23,14 @@
     {
         "id": 5,
         "description": "Solve 5 Sql Problems",
-        "status": "to-do",
+        "status": "in-progress",
         "createdAt": "2025-11-28 11:55:12 AM",
         "updatedAt": "2025-11-28 11:55:12 AM"
     },
     {
         "id": 6,
         "description": "Play Carrom",
-        "status": "to-do",
+        "status": "in-progress",
         "createdAt": "2025-11-28 12:12:14 PM",
         "updatedAt": "2025-11-28 12:12:14 PM"
     },

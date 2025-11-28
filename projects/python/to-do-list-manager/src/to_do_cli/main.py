@@ -1,6 +1,7 @@
 # Core Imports - Class and utility functions
 from to_do_cli.core import task as task
-from to_do_cli.core import utility_functions as uf
+from to_do_cli.core import task_utils as tu
+from to_do_cli.core import tabulate_data as td
 # Actions Imports - business logic for each user action
 from to_do_cli.actions import user_input_parser as uip
 from to_do_cli.actions import add_task as at

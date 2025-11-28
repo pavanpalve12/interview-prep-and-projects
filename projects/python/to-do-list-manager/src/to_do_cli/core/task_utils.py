@@ -1,11 +1,3 @@
-from tabulate import tabulate
-
-# Function: To display task
-def display_tasks(task_data):
-    headers = task_data[0].keys()
-    rows = [task.values() for task in task_data]
-    print(tabulate(rows, headers = headers, tablefmt="fancy_grid"))
-
 # Function: To fetch latest tasks id from all tasks
 def get_latest_task_id(task_data):
     if not task_data:
