@@ -1,16 +1,44 @@
 [
     {
         "id": 1,
-        "description": "Buy groceries",
-        "status": "todo",
-        "createdAt": "2025-11-27T20:53:27.588243",
-        "updatedAt": "2025-11-27T20:53:27.588243"
+        "description": "Buy Groceries",
+        "status": "to-do",
+        "createdAt": "2025-11-28 11:54:12 AM",
+        "updatedAt": "2025-11-28 11:54:12 AM"
     },
     {
-        "id": 2,
-        "description": "Clean room",
-        "status": "done",
-        "createdAt": "2025-11-27T20:53:27.588243",
-        "updatedAt": "2025-11-27T20:53:27.588243"
+        "id": 3,
+        "description": "Make Dinner",
+        "status": "in-progress",
+        "createdAt": "2025-11-28 11:54:44 AM",
+        "updatedAt": "2025-11-28 11:54:44 AM"
+    },
+    {
+        "id": 4,
+        "description": "Make Brunch",
+        "status": "to-do",
+        "createdAt": "2025-11-28 11:55:01 AM",
+        "updatedAt": "2025-11-28 11:55:01 AM"
+    },
+    {
+        "id": 5,
+        "description": "Solve 5 Sql Problems",
+        "status": "to-do",
+        "createdAt": "2025-11-28 11:55:12 AM",
+        "updatedAt": "2025-11-28 11:55:12 AM"
+    },
+    {
+        "id": 6,
+        "description": "Play Carrom",
+        "status": "to-do",
+        "createdAt": "2025-11-28 12:12:14 PM",
+        "updatedAt": "2025-11-28 12:12:14 PM"
+    },
+    {
+        "id": 7,
+        "description": "Write Python Code For Project",
+        "status": "to-do",
+        "createdAt": "2025-11-28 12:12:28 PM",
+        "updatedAt": "2025-11-28 12:12:28 PM"
     }
 ]

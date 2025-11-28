@@ -1,26 +1,23 @@
 import os
 import json
 
-default_file_path = "projects/python/to-do-list-manager/data/to_do_tasks.json"
+def read_tasks(file_path):
+    try:        
+        #print("Reading tasks from json file from -> ", file_path)
 
-def read_tasks(file_path = None):
-    try:
-        # check if main is passing file path, if yes overwrite default path
-        if file_path:
-            default_file_path = file_path
-
-        if not os.path.exists(default_file_path):
+        if not file_path.exists():
             print("Starting fresh, no tasks created yet. Create first task.")
+            task_data = []
         else:
-            with open(default_file_path, "r") as jfile:
-                tasks_data = json.load(jfile)
+            with open(file_path, "r") as jfile:
+                task_data = json.load(jfile)
             
-            if not tasks_data:
+            if not task_data:
                 print("No tasks present in json file")
             else:
-                print("Tasks are loaded from json file:", tasks_data)
+                print("Tasks are loaded from json file")            
 
-        return tasks_data
+        return task_data
     except json.JSONDecodeError:
         print("❌ File is not valid JSON — resetting to empty list.")
         tasks = []
