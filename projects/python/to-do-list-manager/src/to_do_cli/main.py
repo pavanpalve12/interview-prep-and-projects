@@ -14,6 +14,7 @@ from to_do_cli.storage import read_tasks_from_json as rjfile
 from to_do_cli.storage import write_tasks_to_json as wjfile
 # Other standard imports
 from pathlib import Path as path
+import sys
 
 
 def main():
@@ -37,21 +38,26 @@ def main():
 
     user_action = user_input_dict["action"] if "action" in user_input_keys else None
     user_task_id = user_input_dict["task_id"] if "task_id" in user_input_keys else None
-    user_description = user_input_dict["description"].title() if "description" in user_input_keys else None
+    user_description = user_input_dict["description"] if "description" in user_input_keys else None
     user_status = user_input_dict["status"] if "status" in user_input_keys else None
     # print (user_action, user_task_id, user_description, user_status)
     
     # routing actions based on user inputs
     if user_action == "add":
-        at.add_task(task_data_file_path, task_obj, user_description)                
+        at.add_task(task_data_file_path, task_obj, user_description)
+        td.display_data_table(rjfile.read_tasks(task_data_file_path))                
     elif user_action == "update":
         ut.update_task(task_data_file_path, user_task_id, user_description)
+        td.display_data_table(rjfile.read_tasks(task_data_file_path))
     elif user_action == "delete":
         dt.delete_task(task_data_file_path, user_task_id)
+        td.display_data_table(rjfile.read_tasks(task_data_file_path))
     elif user_action == "mark-done":
         mts.mark_task(task_data_file_path, user_task_id, user_action[5:])
+        td.display_data_table(rjfile.read_tasks(task_data_file_path))
     elif user_action == "mark-in-progress":
         mts.mark_task(task_data_file_path, user_task_id, user_action[5:])
+        td.display_data_table(rjfile.read_tasks(task_data_file_path))
     elif user_action == "list":
         lt.list_tasks(task_data_file_path, user_status)
     else:
