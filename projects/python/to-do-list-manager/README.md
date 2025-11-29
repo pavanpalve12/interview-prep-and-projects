@@ -79,14 +79,14 @@ You can find the complete To-Do List CLI project on GitHub: <br>
 
 💻 macOS & Linux <br>
 ```bash
-git clone https://github.com/pavanpalve12/interview-prep-and-projects.git 
+git clone https://github.com/pavanpalve12/interview-prep-and-projects
 cd interview-prep-and-projects/projects/python/to-do-list-manager 
 python3 -m to_do_cli.main --help 
 ```
 
 🪟 Windows
 ```bash
-git clone https://github.com/pavanpalve12/interview-prep-and-projects.git
+git clone https://github.com/pavanpalve12/interview-prep-and-projects
 cd interview-prep-and-projects\projects\python\to-do-list-manager
 py -m to_do_cli.main --help 
 ```
@@ -111,8 +111,6 @@ py -m to_do_cli.main --help
 Your Name – [@YourTwitter](https://twitter.com/YourTwitter) – YourEmail@example.com
 
 Distributed under the XYZ license. See ``LICENSE`` for more information.
-
-[https://github.com/yourname/task-tracker-cli](https://github.com/yourname/task-tracker-cli)
 
 ---
 
