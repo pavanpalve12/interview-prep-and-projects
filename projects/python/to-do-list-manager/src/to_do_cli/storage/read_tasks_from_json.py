@@ -6,7 +6,7 @@ def read_tasks(file_path):
         #print("Reading tasks from json file from -> ", file_path)
 
         if not file_path.exists():
-            print("Starting fresh, no tasks created yet. Create first task.")
+            #print("Starting fresh, no tasks created yet. Create first task.")
             task_data = []
         else:
             with open(file_path, "r") as jfile:

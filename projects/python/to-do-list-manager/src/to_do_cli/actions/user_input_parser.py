@@ -1,10 +1,31 @@
 import argparse
+import textwrap
 
 def parse_user_input():
     parser = argparse.ArgumentParser(
-        prog = "to-do-list-CLI",
-        description = "User input from CLI for To-Do List Manager",
-        epilog = "Examples:\n  task-cli add \"Buy groceries\"\n  task-cli update 1 \"Cook dinner\"\n  task-cli list done"
+        prog="to_do_cli",
+        usage="python3 -m to_do_cli.main <command> [options]",
+        description=textwrap.dedent("""\
+            A simple command-line To-Do List manager.
+
+            You can:
+              • Add new tasks
+              • Delete existing tasks
+              • Update a task’s description
+              • Mark a task’s status as 'to-do', 'in-progress', or 'done'
+              • List all tasks, or filter them by status
+        """),
+        epilog=textwrap.dedent("""\
+            Examples:
+              python3 -m to_do_cli.main add "Attend Yoga Class at 6 AM"
+              python3 -m to_do_cli.main add "Make Breakfast"
+              python3 -m to_do_cli.main update 2 "Make Eggs for Breakfast"
+              python3 -m to_do_cli.main mark-in-progress 2
+              python3 -m to_do_cli.main mark-done 1
+              python3 -m to_do_cli.main list
+              python3 -m to_do_cli.main list --status done
+        """),
+        formatter_class=argparse.RawTextHelpFormatter
     )
 
     # parsing user input command wise

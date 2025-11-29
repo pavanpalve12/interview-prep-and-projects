@@ -1,2 +1,35 @@
-.DS_Store.DS_Store
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.pytest_cache/
+*.egg-info/
+.env/
+venv/
+.venv/
+
+# ---- macOS ----
 .DS_Store
+
+# ---- Logs / Temp ----
+*.log
+*.tmp
+
+# ---- IDE / Editor ----
+.vscode/
+.idea/
+
+# ---- Build / Packaging ----
+build/
+dist/
+
+# ---- Jupyter / Notebook ----
+.ipynb_checkpoints/
+
+# ---- VHS output ----
+preview*.gif
+
+# ---- Misc ----
+*.bak
