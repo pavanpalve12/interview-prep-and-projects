@@ -1,13 +1,13 @@
 <h1 align="center">
   <a href="https://github.com/pavanpalve12">
-    <img src="/Users/pavan/Workspace/00-Tech-Workspace/github/interview-prep-and-projects/logo.png" alt="To-Do CLI Logo" height = "40" width="40" align="left">
+    <img src="logo.png" alt="To-Do CLI Logo" height = "40" width="40" align="left">
   </a>
   📋 To-Do List Manager - CLI BASED
 </h1>
 
 <a href="https://roadmap.sh/projects/task-tracker" target="_blank">
   <img 
-    src="/Users/pavan/Workspace/00-Tech-Workspace/github/interview-prep-and-projects/projects/python/to-do-list-manager/scripts/to_do_cli_demo.gif" 
+    src="/projects/python/to-do-list-manager/scripts/to_do_cli_demo.gif" 
     alt="Preview"
     width="800" 
     height="400"
