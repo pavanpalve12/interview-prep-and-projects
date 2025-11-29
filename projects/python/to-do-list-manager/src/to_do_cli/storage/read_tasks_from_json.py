@@ -12,10 +12,10 @@ def read_tasks(file_path):
             with open(file_path, "r") as jfile:
                 task_data = json.load(jfile)
             
-            #if not task_data:
-             #   print("No tasks present in json file")
-            #else:
-             #   print("Tasks are loaded from json file")            
+            if not task_data:
+               print("No tasks present in json file")
+            else:
+               print("Tasks are loaded from json file")            
 
         return task_data
     except json.JSONDecodeError:
