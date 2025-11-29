@@ -6,7 +6,7 @@ class task:
     def __init__(self):
         self.id = None
         self.description = ""
-        self.status = "to-do"
+        self.status = ""
         self.createdAt = None
         self.updatedAt = None
 
@@ -27,6 +27,7 @@ class task:
         now = datetime.now().strftime("%Y-%m-%d %I:%M:%S %p")
         self.id = task_id
         self.description = description
+        self.status = "to-do"
         self.createdAt = now
         self.updatedAt = now    
         return self

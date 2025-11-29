@@ -24,7 +24,7 @@ def parse_user_input():
     update_task_parser.add_argument("description", metavar = "DESCRIPTION", help = "Task description")
 
     # inputs for changing task status - mark-in-progess
-    status_task_parser = subparser.add_parser("mark-in-progess", help = "Mark task status as in-progess")
+    status_task_parser = subparser.add_parser("mark-in-progress", help = "Mark task status as in-progess")
     status_task_parser.add_argument("task_id", type = int, metavar = "TASK_ID", help ="Task ID")
 
     # inputs for changing task status - mark-done
