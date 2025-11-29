@@ -22,9 +22,9 @@ Demonstrates modular design, test-driven development, and user-centric command s
 Ideal for developers learning how to build maintainable, testable CLI applications in Python.
 ---
 
-# 📍 Project URL   
+# 📍 Roadmap Project URL   
 
-https://roadmap.sh/projects/task-tracker
+[https://roadmap.sh/projects/task-tracker](https://roadmap.sh/projects/task-tracker)
 
 ---
 
