@@ -21,6 +21,13 @@ Built with Python and argparse for robust CLI handling and clean output formatti
 Demonstrates modular design, test-driven development, and user-centric command structuring.
 Ideal for developers learning how to build maintainable, testable CLI applications in Python.
 ---
+
+# 📍 Project Location  
+
+https://github.com/pavanpalve12/interview-prep-and-projects/tree/main/projects/python/to-do-list-manager
+
+---
+
 # 🧩 **Problem Statement**
 
 The **To-Do List Manager (CLI-Based)** is a terminal application to manage daily tasks — allowing users to **add, update, delete, and track progress** directly from the command line.  
@@ -62,7 +69,9 @@ Example:
   "createdAt": "2025-11-29T09:00:00Z",
   "updatedAt": "2025-11-29T09:30:00Z"
 }
+```  
 ---
+
 # 🧩 Installation -- Update with actual commands 
 📍 Project Location <br>
 You can find the complete To-Do List CLI project on GitHub: <br>
