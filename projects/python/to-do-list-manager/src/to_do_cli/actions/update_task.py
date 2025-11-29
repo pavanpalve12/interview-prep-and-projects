@@ -17,15 +17,16 @@ def update_task(task_data_file_path, task_id, description):
             current_task_description = task_data[index_of_task]["description"]
             print("""Updating description for task {}, "{}" --> "{}". """.format(task_id, current_task_description, description))
 
-            task_data[index_of_task]["description"] = description
+            task_data[index_of_task]["description"] = description.title()
 
-            td.display_data_table([task_data[index_of_task]])
+            #td.display_data_table([task_data[index_of_task]])
 
+            wjfile.write_tasks(task_data, task_data_file_path)
             # Write updated task to json file
-            if wjfile.write_tasks(task_data, task_data_file_path):
-                print("Write successful")
-            else:
-                print("Write failed")
+           # if wjfile.write_tasks(task_data, task_data_file_path):
+            #    print("Write successful")
+            #else:
+            #    print("Write failed")
         else:
             print("Provide valid task id.")
             print("No tasks with task id -> {} are found in tasks".format(task_id))            

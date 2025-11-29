@@ -8,7 +8,7 @@ def add_task(task_data_file_path, task_obj, description):
     task_data = rjfile.read_tasks(task_data_file_path)
 
     # Initialize variables of class task (properties of task)
-    task_obj.initialize(description, tu.get_latest_task_id(task_data))
+    task_obj.initialize(description.title(), tu.get_latest_task_id(task_data))
 
     # Creating a dictionary of task properties for writing to json 
     curr_task = task_obj.task_to_dict()
@@ -17,7 +17,8 @@ def add_task(task_data_file_path, task_obj, description):
     task_data.append(curr_task)
 
     # Writing task data to json file
-    if wjfile.write_tasks(task_data, task_data_file_path):
-        print("Write successful")
-    else:
-        print("Write failed")   
+    wjfile.write_tasks(task_data, task_data_file_path)
+    #if wjfile.write_tasks(task_data, task_data_file_path):
+     #   print("Write successful")
+    #else:
+     #   print("Write failed")   

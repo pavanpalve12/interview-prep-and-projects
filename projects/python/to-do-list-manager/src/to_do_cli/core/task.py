@@ -26,7 +26,7 @@ class task:
     def initialize(self, description, task_id):
         now = datetime.now().strftime("%Y-%m-%d %I:%M:%S %p")
         self.id = task_id
-        self.description = description
+        self.description = description.title()
         self.status = "to-do"
         self.createdAt = now
         self.updatedAt = now    

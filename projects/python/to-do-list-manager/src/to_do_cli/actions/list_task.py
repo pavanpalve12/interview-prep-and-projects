@@ -17,7 +17,6 @@ def list_tasks(task_data_file_path, status):
         if task_data:
             td.display_data_table(task_data)    
         else:
-            print("Provide valid status.")
             print("No tasks with status -> {} are found in tasks".format(status))            
             
     except IndexError as ie:

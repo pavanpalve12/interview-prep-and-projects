@@ -14,10 +14,11 @@ def delete_task(task_data_file_path, task_id):
             td.display_data_table([removed_task])
 
             # Write updated task to json file
-            if wjfile.write_tasks(task_data, task_data_file_path):
-                print("Write successful")
-            else:
-                print("Write failed")
+            wjfile.write_tasks(task_data, task_data_file_path)
+            #if wjfile.write_tasks(task_data, task_data_file_path):
+             #   print("Write successful")
+            #else:
+             #   print("Write failed")
         else:
             print("Provide valid task id.")
             print("No tasks with task id -> {} are found in tasks".format(task_id))            

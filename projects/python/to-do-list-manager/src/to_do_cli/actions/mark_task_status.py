@@ -20,12 +20,12 @@ def mark_task(task_data_file_path, task_id, task_status):
             td.display_data_table([task_data[index_of_task]])
 
             # Write updated task to json file
-            if wjfile.write_tasks(task_data, task_data_file_path):
-                print("Write successful")
-            else:
-                print("Write failed")
+            wjfile.write_tasks(task_data, task_data_file_path)
+            #if wjfile.write_tasks(task_data, task_data_file_path):
+            #    print("Write successful")
+            #else:
+            #    print("Write failed")
         else:
-            print("Inside mark task func")
             print("Provide valid task id.")
             print("No tasks with task id -> {} are found in tasks".format(task_id)) 
     except IndexError as ie:
