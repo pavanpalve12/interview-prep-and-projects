@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://github.com/pavanpalve12">
-    <img src="logo.png" alt="To-Do CLI Logo" height = "40" width="40" align="left">
+    <img src="https://github.com/pavanpalve12/interview-prep-and-projects/blob/764da540f36220889135411a55656798d70425c0/dev_logo.png" height = "45" width="60" align="left">
   </a>
   📋 To-Do List Manager - CLI BASED
 </h1>
