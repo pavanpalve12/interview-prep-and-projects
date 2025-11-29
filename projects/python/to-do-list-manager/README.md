@@ -1,112 +1,103 @@
-# 🗂️ TO DO LIST MANAGER - CLI BASED
-> A simple command-line tool to track, manage, and organize your tasks efficiently.
-Task Tracker is a project used to track and manage your tasks.  
-It’s a **CLI-based application** that lets you add, update, delete, and mark tasks as done or in progress — all from your terminal.  
-This project helps you practice handling user inputs, working with the filesystem, and building a minimal yet practical CLI tool that stores data in JSON.
----
+<h1 align="center">
+  <a href="https://github.com/pavanpalve12">
+    <img src="/Users/pavan/Workspace/00-Tech-Workspace/github/interview-prep-and-projects/logo.png" alt="To-Do CLI Logo" height = "40" width="40" align="left">
+  </a>
+  📋 To-Do List Manager - CLI BASED
+</h1>
 
-## 🧩 Installation -- Update with actual commands 
-
-OS X & Linux:
-
-```sh
-# Example (Python)
-git clone https://github.com/yourname/task-tracker-cli.git
-cd task-tracker-cli
-python3 task_cli.py --help
-```
-
-Windows:
-
-```sh
-# Example
-py task_cli.py --help
-```
+<a href="https://roadmap.sh/projects/task-tracker" target="_blank">
+  <img 
+    src="/Users/pavan/Workspace/00-Tech-Workspace/github/interview-prep-and-projects/projects/python/to-do-list-manager/scripts/to_do_cli_demo.gif" 
+    alt="Preview"
+    width="800" 
+    height="400"
+  >
+</a>
 
 ---
+# Description
+> A lightweight command-line tool to manage daily tasks efficiently — add, update, delete, mark progress, and list tasks by status.
+Built with Python and argparse for robust CLI handling and clean output formatting.
+Demonstrates modular design, test-driven development, and user-centric command structuring.
+Ideal for developers learning how to build maintainable, testable CLI applications in Python.
+---
+# 🧩 **Problem Statement**
 
-## ▶️ Usage Example -- Update with actual commands 
+The **To-Do List Manager (CLI-Based)** is a terminal application to manage daily tasks — allowing users to **add, update, delete, and track progress** directly from the command line.  
+It emphasizes practical experience with **CLI argument parsing, JSON file storage, and error handling.**
 
-A few motivating and useful examples of how your Task Tracker CLI can be used.
+---
 
+### ⚙️ **Requirements**
+- Runs entirely in the **terminal**.  
+- Accepts user actions such as `add`, `update`, `delete`, `mark`, and `list`.  
+- Stores tasks in a local **JSON file**, creating it automatically if missing.  
+- Handles invalid input, file errors, and missing arguments gracefully.  
+
+---
+
+### ✅ **Core Features**
+- **Add / Update / Delete** tasks.  
+- **Mark** tasks as *to-do*, *in-progress*, or *done*.  
+- **List** all tasks or filter by status.  
+
+---
+
+### 📦 **Task Structure**
+
+| Key | Type | Description |
+|------|------|-------------|
+| `id` | `int` | Unique identifier for each task |
+| `description` | `string` | Short text describing the task |
+| `status` | `string` | One of: `to-do`, `in-progress`, or `done` |
+| `createdAt` | `string` | Timestamp when the task was created |
+| `updatedAt` | `string` | Timestamp when the task was last updated |
+
+Example:
+```json
+{
+  "id": 1,
+  "description": "Attend Yoga Class at 6 AM",
+  "status": "in-progress",
+  "createdAt": "2025-11-29T09:00:00Z",
+  "updatedAt": "2025-11-29T09:30:00Z"
+}
+---
+# 🧩 Installation -- Update with actual commands 
+📍 Project Location <br>
+You can find the complete To-Do List CLI project on GitHub: <br>
+👉 pavanpalve12/interview-prep-and-projects – To-Do List Manager <br>
+
+💻 macOS & Linux <br>
 ```bash
-# Adding a new task
-task-cli add "Buy groceries"
-# Output: Task added successfully (ID: 1)
-
-# Updating and deleting tasks
-task-cli update 1 "Buy groceries and cook dinner"
-task-cli delete 1
-
-# Marking a task as in progress or done
-task-cli mark-in-progress 1
-task-cli mark-done 1
-
-# Listing all tasks
-task-cli list
-
-# Listing tasks by status
-task-cli list done
-task-cli list todo
-task-cli list in-progress
+git clone https://github.com/pavanpalve12/interview-prep-and-projects.git 
+cd interview-prep-and-projects/projects/python/to-do-list-manager 
+python3 -m to_do_cli.main --help 
 ```
 
-_For more examples and usage, please refer to the [Wiki][wiki]._
-
----
-
-## 🧱 Requirements
-
-The application should:
-
-- Run from the command line and accept user actions as arguments.  
-- Store tasks in a local **JSON file** (auto-created if missing).  
-- Support the following operations:
-  - Add, Update, Delete tasks  
-  - Mark tasks as **todo**, **in-progress**, or **done**  
-  - List tasks (all or filtered by status)
-
-**Implementation Constraints:**
-- Use **native filesystem modules** (no external libraries or frameworks).  
-- Handle **errors and edge cases** gracefully.  
-- The project can be built in any programming language.
-
----
-
-## 🗃️ Task Properties
-
-Each task must have the following fields:
-
-| Property | Description |
-|-----------|--------------|
-| `id` | Unique identifier for the task |
-| `description` | Short text about the task |
-| `status` | Task state: `todo`, `in-progress`, or `done` |
-| `createdAt` | Timestamp when task was created |
-| `updatedAt` | Timestamp when task was last updated |
-
----
-
-## 💻 Development Setup
-
-Describe how to install dependencies and run tests here.
-
-```sh
-# Example commands
-make install
-pytest -q
+🪟 Windows
+```bash
+git clone https://github.com/pavanpalve12/interview-prep-and-projects.git
+cd interview-prep-and-projects\projects\python\to-do-list-manager
+py -m to_do_cli.main --help 
 ```
 
 ---
+# 🚀 Project Features – To-Do CLI
 
-## 🧾 Release History
-
-* 0.1.0
-  * The first functional release — supports add, list, update, delete, mark status.
-
+- **Add, Update, Delete Tasks** — Manage your daily to-dos with simple, intuitive commands.
+- **Mark Progress** — Set task status as to-do, in-progress, or done.
+- **List & Filter** — View all tasks or filter by specific status for quick tracking.
+- **Persistent Storage** — Saves tasks locally for seamless session continuity.
 ---
-
-## 🧠 Meta
+# ⚙️ Project Workflow
+- User Command Input — The user interacts through terminal commands like add, update, delete mark-done, or list.
+- Argument Parsing — argparse interprets the command and routes it to the correct function.
+- Task Processing — The command handler updates in-memory task data (add, modify, delete, or change status).
+- Data Persistence — Updated tasks are saved to a local JSON file for session continuity.
+- Output Display — Results are printed in a clean, tabular format, reflecting the current task list or filtered view.
+---
+# 🧠 Meta
 
 Your Name – [@YourTwitter](https://twitter.com/YourTwitter) – YourEmail@example.com
 
@@ -116,7 +107,7 @@ Distributed under the XYZ license. See ``LICENSE`` for more information.
 
 ---
 
-## 🤝 Contributing
+# 🤝 Contributing
 
 1. Fork it (<https://github.com/yourname/task-tracker-cli/fork>)
 2. Create your feature branch (`git checkout -b feature/add-new-command`)
@@ -125,6 +116,3 @@ Distributed under the XYZ license. See ``LICENSE`` for more information.
 5. Create a new Pull Request
 
 ---
-
-
-[def]: projects/python/to-do-list-manager/readme_banner.png
