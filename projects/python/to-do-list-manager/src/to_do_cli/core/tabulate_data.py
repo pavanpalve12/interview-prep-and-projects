@@ -1,71 +1,112 @@
-# Function: Calculates max length reqd for each column
-def _calculate_col_length(task_data):
-    key_len_dict = {}
+from to_do_cli.core import tabulate_data as td
+from pathlib import Path as path    
+import json
 
-    # for each key in task_data dict (each col)
-    for key in task_data[0].keys():    
-        len_list = []
+def _compute_column_widths(data) -> dict:
+    """
+    Compute the maximum width of each column in a list of dictionaries.
+
+    Args:
+        - data (list[dict]): List of dictionaries containing tabular data.
+                             Each key represents a column name.
+
+    Returns:
+        dict: A dictionary mapping each column name to its maximum width,
+              calculated based on both the header name and the longest value.
+    """
+
+    widths = {}    
+    for key in data[0].keys():
+        lengths = []
+        max_len = 0        
+        for idx, item in enumerate(data):        
+            value = str(data[idx][key])
+            lengths.append(len(value))
         
-        # for rows in each column (column wise reading)
-        for t in task_data:    
-            len_list.append(len(str(t[key])))
-        
-        key_len_dict[key] = max(len_list) 
+        widths[key] = max(max(lengths), len(key))
+    return widths
 
-    return key_len_dict
+def _build_border(columns, widths, style) -> str:
+    """
+    Build a horizontal border line for the table according to the chosen style.
 
-# Function: Create header row
-def _generate_top_bottom_row(key_len_dict):
-    total_row_length = sum([i for i in key_len_dict.values()])
-    num_cols = len(key_len_dict)
-    #print(total_row_length, num_cols, key_len_dict.values())
+    Args:
+        - columns (iterable): Column names in display order.
+        - widths (dict): Mapping of column names to their computed widths.
+        - style (str, optional): Border style. 
+            One of the following:
+                - "simple"       → uses only dashes ('-') -> -------
+                - "grid"         → uses '+' at intersections -> +----+----+
+                - "simple_grid"  → hybrid with '+' at ends only -> +------+
+            Defaults to "simple_grid".
 
-    # total length + 5 pipes + 10 spaces + 1 extra at end
-    row = "-" * (total_row_length + (num_cols * 3) + 1) 
-    return row
+    Returns:
+        str: The formatted border string.
+    """
 
-# Function: Create header row
-def _generate_header_row(key_len_dict):
-    header_row = ""
+    if style == "simple":
+        return "-" + "-".join("-" * (widths[k] + 2) for k in columns) + "-"
+    if style == "grid":
+        return "+" + "+".join("-" * (widths[k] + 2) for k in columns) + "+"
+    if style == "simple_grid":
+        return "+" + "-".join("-" * (widths[k] + 2) for k in columns) + "+"
 
-    for key, value in key_len_dict.items():
-        start_pipe_column_name = "| {}".format(key)
-        spaces_after_column_name = " " * (value - len(key) + 1)  
-        header_row += start_pipe_column_name + spaces_after_column_name
-    # add last pipe at the end of header row
-    header_row +=  "|" 
-    return header_row
+def _build_row(row_dict, widths) -> list:
+    """
+    Construct a formatted table row and its corresponding border.
 
-# Function: Create data rows
-def _generate_data_row(task_data, key_len_dict):
-    data_rows = []
-    for task_dict in task_data:
-        curr_row = ""
-        for key, value in task_dict.items():
-            # find max length reqd for current column from key length dict
-            col_length = key_len_dict[key]
-            # print("Current col -> {} length reqd -> {} col_name_length -> {}".format(key, col_length, len(str(key))))
+    Args:
+        - row_dict (dict): Dictionary representing a single table row.
+                           Keys correspond to column names.
+        - widths (dict): Mapping of column names to their computed widths.
 
-            # build data row
-            start_pipe_column_name = "| {}".format(value)                
-            spaces_after_column_name = " " * (col_length - len(str(value)) + 1)
-            curr_row += start_pipe_column_name + spaces_after_column_name
-        
-        # add last pipe at the end of header row
-        curr_row +=  "|" 
-        data_rows.append(curr_row)
-    return data_rows
+    Returns:
+        tuple[str, str]: A tuple containing:
+            - The formatted table row string with padded cells.
+            - The border line string for visual separation.
+    """
+    cells = []
+    for key, value in row_dict.items():
+        val = str(value)
+        padding = " "  * (widths[key] - len(str(value)))
+        cells.append(f" {val}{padding} ")
 
-# Function: display data as table (data must have header and rows -> list of dict)
-def display_data_table(data):
-    key_len_dict = _calculate_col_length(data)
-    top_row = bottom_row = _generate_top_bottom_row(key_len_dict)
-    header_row = _generate_header_row(key_len_dict)
-    data_rows = _generate_data_row(data, key_len_dict)
+    curr_row = "|" + "|".join(cells) + "|"
+    return curr_row
 
-    print(top_row)
-    print(header_row)
-    print(bottom_row)
-    for row in data_rows:
-        print(row)
-    print(bottom_row)
+def display_data_table(data, style = "simple_grid") -> bool:
+    """
+    Render tabular data in a clean, fixed-width text table.
+
+    Args:
+        - data (list[dict]): List of dictionaries where each dict represents
+                             a table row (key = column name, value = cell value).
+
+    Returns:
+        - bool: True if the table was rendered successfully, False if the input
+                data was empty.
+
+    Notes:
+        - Automatically computes column widths based on content.
+        - Prints header row followed by each data row.
+        - Supports multiple border styles via `_build_border`.
+    """
+    if not data:
+        print("Data is empty")
+        return False
+    widths = _compute_column_widths(data)    
+
+    # header row: pass dict as {widths[key] = widths[key]} treat key as cell value for header
+    #header_row = _build_row(dict(zip(widths.keys(), widths.keys())), widths)
+
+    border = _build_border(widths.keys(), widths, style)
+    header_dict = dict(zip(widths.keys(), widths.keys()))
+    rows_list = [header_dict] + data
+    for idx, dict_item in enumerate(rows_list):
+        curr_row = _build_row(dict_item, widths)   
+
+        # print top row only for first row (header row)
+        if idx == 0:  
+            print(border)           
+        print(curr_row)
+        print(border)
